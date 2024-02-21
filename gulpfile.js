@@ -1,8 +1,16 @@
-const gulp = require('gulp');
 
+var gulp = require('gulp');
+var ghPages = require('gulp-gh-pages');
 // Tasks
 require('./gulp/dev.js');
 require('./gulp/prod.js');
+
+gulp.task('deploy', function() {
+	return gulp.src('./dist/**/*')
+	  .pipe(ghPages());
+  });
+  
+
 
 gulp.task(
 	'default',
